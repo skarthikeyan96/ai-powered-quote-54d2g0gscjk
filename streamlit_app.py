@@ -30,4 +30,4 @@ with st.form('form'):
 if not openai_api_key:
     st.info("Please add your OpenAI API key to continue.")
 elif submitted:
-    generate_response(text)
+    generate_response(option)
