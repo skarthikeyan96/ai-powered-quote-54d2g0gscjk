@@ -1,6 +1,7 @@
 import streamlit as st
-from langchain.llms import OpenAI
+from langchain.llms.openai import OpenAI
 from langchain.prompts import PromptTemplate
+
 
 st.title("🎈 AI powered quote generator")
 
