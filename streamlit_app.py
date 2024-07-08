@@ -57,6 +57,9 @@ st.set_page_config(
     page_icon="🤖"
 )
 
+def generate_response(text):
+    st.write(text)
+
 # Check if the Google API key is provided in the sidebar
 with st.sidebar:
     if 'GOOGLE_API_KEY' in st.secrets:
@@ -79,8 +82,13 @@ config = {
         "max_output_tokens": 2048,
         }
     
-if 'GOOGLE_API_KEY' in st.secrets:
-    model = genai.GenerativeModel('gemini-1.5-flash', generation_config=config)
-    response = model.generate_content('Teach me about how an LLM works')
+with st.form('form'):
+    option = st.selectbox(
+    "Select a theme",
+    ("inspirational ", "motivational", "humor", "wisdom"))
+    submitted = st.form_submit_button('submit')
 
-    st.write(response.text)
+if not api_key:
+    st.info("Please add your Gemini API key to continue.")
+elif submitted:
+    generate_response(option)
