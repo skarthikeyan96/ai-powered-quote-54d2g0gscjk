@@ -74,8 +74,13 @@ with st.sidebar:
 # Set the title and caption for the Streamlit app
 st.title("🤖 Google Gemini Models")
 st.caption("🚀 A streamlit app powered by Google Gemini")
+config = {
+        "temperature": 0.8,
+        "max_output_tokens": 2048,
+        }
+    
 
-model = genai.GenerativeModel('gemini-1.5-flash')
+model = genai.GenerativeModel('gemini-1.5-flash', generation_config=config)
 response = model.generate_content('Teach me about how an LLM works')
 
 st.write(response.text)
