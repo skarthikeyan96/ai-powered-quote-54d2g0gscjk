@@ -58,7 +58,18 @@ st.set_page_config(
 )
 
 def generate_response(text):
-    st.write(text)
+    config = {
+        "temperature": 0.8,
+        "max_output_tokens": 2048,
+        }
+        
+    prompt = f"""Generate a {text} quote. The quote should be concise, impactful and suitable for sharing on social media.
+    """
+    model = genai.GenerativeModel('gemini-1.5-flash', generative_config=config)
+    response = model.generate_content(prompt)
+    
+    st.write(response.text)
+
 
 # Check if the Google API key is provided in the sidebar
 with st.sidebar:
@@ -77,11 +88,7 @@ with st.sidebar:
 # Set the title and caption for the Streamlit app
 st.title("🤖 Google Gemini Models")
 st.caption("🚀 A streamlit app powered by Google Gemini")
-config = {
-        "temperature": 0.8,
-        "max_output_tokens": 2048,
-        }
-    
+
 with st.form('form'):
     option = st.selectbox(
     "Select a theme",
