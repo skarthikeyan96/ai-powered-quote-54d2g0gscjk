@@ -79,8 +79,8 @@ config = {
         "max_output_tokens": 2048,
         }
     
+if 'GOOGLE_API_KEY' in st.secrets:
+    model = genai.GenerativeModel('gemini-1.5-flash', generation_config=config)
+    response = model.generate_content('Teach me about how an LLM works')
 
-model = genai.GenerativeModel('gemini-1.5-flash', generation_config=config)
-response = model.generate_content('Teach me about how an LLM works')
-
-st.write(response.text)
+    st.write(response.text)
