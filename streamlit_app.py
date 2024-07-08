@@ -30,7 +30,7 @@ with st.form('form'):
     ("inspirational ", "motivational", "humor", "wisdom"))
     submitted = st.form_submit_button('submit')
 
-if not openai_api_key:
-    st.info("Please add your OpenAI API key to continue.")
-elif submitted:
+# if not openai_api_key:
+#     st.info("Please add your OpenAI API key to continue.")
+# elif submitted:
     generate_response(option)
