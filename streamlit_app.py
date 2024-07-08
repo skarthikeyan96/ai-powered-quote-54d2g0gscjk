@@ -11,17 +11,18 @@ with st.sidebar:
 
 
 def generate_response(text):
-    # Instantiate LLM model
-    llm = OpenAI(model_name="text-davinci-003", openai_api_key=openai_api_key)
-    # Prompt
-    template = "Generate a {text} quote. The quote should be concise, impactful and suitable for sharing on social media."
-    prompt = PromptTemplate(input_variables=["text"], template=template)
-    prompt_query = prompt.format(topic=text)
-    # Run LLM model
-    response = llm(prompt_query)
-    # Print results
-    return st.info(response)
     print(text)
+    # # Instantiate LLM model
+    # llm = OpenAI(model_name="text-davinci-003", openai_api_key=openai_api_key)
+    # # Prompt
+    # template = "Generate a {text} quote. The quote should be concise, impactful and suitable for sharing on social media."
+    # prompt = PromptTemplate(input_variables=["text"], template=template)
+    # prompt_query = prompt.format(topic=text)
+    # # Run LLM model
+    # response = llm(prompt_query)
+    # # Print results
+    # return st.info(response)
+    # print(text)
 
 with st.form('form'):
     option = st.selectbox(
