@@ -65,7 +65,7 @@ def generate_response(text):
         
     prompt = f"""Generate a {text} quote. The quote should be concise, impactful and suitable for sharing on social media.
     """
-    model = genai.GenerativeModel('gemini-1.5-flash')
+    model = genai.GenerativeModel('gemini-1.0-pro-latest')
     response = model.generate_content(prompt)
     
     st.write(response.text)
