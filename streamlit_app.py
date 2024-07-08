@@ -75,7 +75,7 @@ with st.sidebar:
 st.title("🤖 Google Gemini Models")
 st.caption("🚀 A streamlit app powered by Google Gemini")
 
-model = genai.GenerativeModel(name='gemini-1.5-flash')
+model = genai.GenerativeModel('gemini-1.5-flash')
 response = model.generate_content('Teach me about how an LLM works')
 
 st.write(response.text)
