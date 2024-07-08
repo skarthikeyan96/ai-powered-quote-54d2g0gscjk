@@ -70,9 +70,12 @@ with st.sidebar:
             st.success('Success!', icon='✅')
     os.environ['GOOGLE_API_KEY'] = api_key
     "[Get a Google Gemini API key](https://ai.google.dev/)"
-    "[View the source code](https://github.com/wms31/streamlit-gemini/blob/main/app.py)"
-    "[Check out the blog post!](https://letsaiml.com/creating-google-gemini-app-with-streamlit/)"
 
 # Set the title and caption for the Streamlit app
 st.title("🤖 Google Gemini Models")
 st.caption("🚀 A streamlit app powered by Google Gemini")
+
+model = genai.GenerativeModel(name='gemini-1.5-flash')
+response = model.generate_content('Teach me about how an LLM works')
+
+st.write(response.text)
